@@ -4,6 +4,514 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Assessment | TheHope</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wood-deep: #2d1b0e;
+            --wood-medium: #78350f;
+            --accent: #fb923c;
+            --orange-glow: #ffedd5;
+            --card-bg: #ffffff;
+            --text-main: #431407;
+            --text-dim: #7c2d12;
+            --low-color: #16a34a;
+            --mod-color: #d97706;
+            --high-color: #dc2626;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at 30% 20%, #ffedd5 0%, #fed7aa 50%, #78350f 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: var(--text-main);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 18px 8%;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(120,53,15,0.1);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .brand { font-weight: 800; font-size: 1.4rem; color: var(--wood-medium); text-decoration: none; }
+        .nav-links a { color: var(--text-dim); text-decoration: none; margin-left: 20px; font-weight: 700; font-size: 0.85rem; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* MAIN */
+        .container {
+            max-width: 780px;
+            margin: 40px auto;
+            padding: 0 20px 60px;
+        }
+
+        /* HEADER */
+        .page-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--wood-deep);
+            margin-bottom: 10px;
+        }
+        .page-header p {
+            color: var(--text-dim);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* PROGRESS BAR */
+        .progress-wrapper {
+            background: rgba(255,255,255,0.7);
+            border-radius: 50px;
+            padding: 18px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(120,53,15,0.1);
+        }
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+        .progress-bar-bg {
+            background: #fde8d8;
+            border-radius: 50px;
+            height: 10px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--wood-medium));
+            border-radius: 50px;
+            transition: width 0.5s ease;
+        }
+
+        /* CATEGORY SECTION */
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--wood-medium), var(--wood-deep));
+            color: white;
+            padding: 16px 25px;
+            border-radius: 20px;
+            margin: 30px 0 18px;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+        .category-header .cat-icon { font-size: 1.5rem; }
+        .category-header .cat-num { opacity: 0.7; font-size: 0.8rem; font-weight: 600; margin-left: auto; }
+
+        /* QUESTION CARD */
+        .question-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px 30px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(120,53,15,0.08);
+            border: 2px solid transparent;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .question-card:hover {
+            border-color: rgba(251,146,60,0.3);
+            box-shadow: 0 8px 30px rgba(120,53,15,0.12);
+        }
+        .question-card.answered { border-color: var(--accent); }
+
+        .q-label {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--wood-deep);
+            margin-bottom: 18px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .q-num {
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            min-width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        /* EMOJI RADIO SCALE */
+        .emoji-scale {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .emoji-option {
+            flex: 1;
+            min-width: 80px;
+        }
+        .emoji-option input[type="radio"] { display: none; }
+        .emoji-option label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 8px;
+            border: 2px solid #fde8d8;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #fffbf8;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-dim);
+            text-align: center;
+        }
+        .emoji-option label .emoji { font-size: 1.6rem; }
+        .emoji-option input[type="radio"]:checked + label {
+            border-color: var(--accent);
+            background: #fff7ed;
+            color: var(--wood-deep);
+            box-shadow: 0 4px 12px rgba(251,146,60,0.25);
+            transform: translateY(-3px);
+        }
+
+        /* EMOJIS per answer */
+        .emoji-never    { }
+        .emoji-rarely   { }
+        .emoji-sometimes{ }
+        .emoji-often    { }
+
+        /* SUBMIT */
+        .submit-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .disclaimer {
+            background: rgba(255,255,255,0.7);
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            font-weight: 500;
+            border-left: 4px solid var(--accent);
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, var(--wood-medium), var(--wood-deep));
+            color: white;
+            border: none;
+            padding: 18px 60px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(120,53,15,0.3);
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(120,53,15,0.4);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="/" class="brand">🌱 TheHope</a>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/mood/">Mood</a>
+        {% if user.is_authenticated %}
+        <a href="/profile/">Profile</a>
+        <form action="{% url 'logout' %}" method="post" style="display:inline;">{% csrf_token %}
+            <button type="submit" style="background:none;border:none;cursor:pointer;font-weight:700;color:#7c2d12;font-size:0.85rem;font-family:inherit;">Logout</button>
+        </form>
+        {% else %}
+        <a href="/accounts/login/">Login</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="page-header">
+        <h1>🧠 Mental Health Assessment</h1>
+        <p>Answer honestly — there are no right or wrong answers. This takes about 5 minutes.</p>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-wrapper">
+        <div class="progress-info">
+            <span id="progress-text">Question 0 of 20 answered</span>
+            <span id="progress-pct">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+        </div>
+    </div>
+
+    <form method="POST" id="assessment-form">
+        {% csrf_token %}
+
+        <!-- CATEGORY 1: Stress & Anxiety -->
+        <div class="category-header">
+            <span class="cat-icon">😰</span>
+            <div>
+                <div>Stress &amp; Anxiety</div>
+                <div style="font-size:0.8rem;font-weight:500;opacity:0.8;">Questions 1–5</div>
+            </div>
+            <span class="cat-num">5 questions</span>
+        </div>
+
+        {% for i in "12345" %}
+        {% with field=form|dictsort:i %}
+        {% endwith %}
+        {% endfor %}
+
+        {% for q, field in form.fields.items %}
+        {% if q == "q1" or q == "q2" or q == "q3" or q == "q4" or q == "q5" %}
+        <div class="question-card" id="card-{{ q }}">
+            <div class="q-label">
+                <span class="q-num">{{ forloop.counter }}</span>
+                <span>{{ field.label }}</span>
+            </div>
+            <div class="emoji-scale">
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0">
+                    <label for="{{ q }}_0"><span class="emoji">😊</span>Never</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1">
+                    <label for="{{ q }}_1"><span class="emoji">🙂</span>Rarely</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2">
+                    <label for="{{ q }}_2"><span class="emoji">😐</span>Sometimes</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3">
+                    <label for="{{ q }}_3"><span class="emoji">😟</span>Often</label>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <!-- CATEGORY 2: Depression & Mood -->
+        <div class="category-header">
+            <span class="cat-icon">😔</span>
+            <div>
+                <div>Depression &amp; Mood</div>
+                <div style="font-size:0.8rem;font-weight:500;opacity:0.8;">Questions 6–10</div>
+            </div>
+            <span class="cat-num">5 questions</span>
+        </div>
+
+        {% for q, field in form.fields.items %}
+        {% if q == "q6" or q == "q7" or q == "q8" or q == "q9" or q == "q10" %}
+        <div class="question-card" id="card-{{ q }}">
+            <div class="q-label">
+                <span class="q-num">{{ forloop.counter }}</span>
+                <span>{{ field.label }}</span>
+            </div>
+            <div class="emoji-scale">
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0">
+                    <label for="{{ q }}_0"><span class="emoji">😊</span>Never</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1">
+                    <label for="{{ q }}_1"><span class="emoji">🙂</span>Rarely</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2">
+                    <label for="{{ q }}_2"><span class="emoji">😐</span>Sometimes</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3">
+                    <label for="{{ q }}_3"><span class="emoji">😟</span>Often</label>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <!-- CATEGORY 3: Sleep & Physical Health -->
+        <div class="category-header">
+            <span class="cat-icon">😴</span>
+            <div>
+                <div>Sleep &amp; Physical Health</div>
+                <div style="font-size:0.8rem;font-weight:500;opacity:0.8;">Questions 11–14</div>
+            </div>
+            <span class="cat-num">4 questions</span>
+        </div>
+
+        {% for q, field in form.fields.items %}
+        {% if q == "q11" or q == "q12" or q == "q13" or q == "q14" %}
+        <div class="question-card" id="card-{{ q }}">
+            <div class="q-label">
+                <span class="q-num">{{ forloop.counter }}</span>
+                <span>{{ field.label }}</span>
+            </div>
+            <div class="emoji-scale">
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0">
+                    <label for="{{ q }}_0"><span class="emoji">😊</span>Never</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1">
+                    <label for="{{ q }}_1"><span class="emoji">🙂</span>Rarely</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2">
+                    <label for="{{ q }}_2"><span class="emoji">😐</span>Sometimes</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3">
+                    <label for="{{ q }}_3"><span class="emoji">😟</span>Often</label>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <!-- CATEGORY 4: Social & Behavioral -->
+        <div class="category-header">
+            <span class="cat-icon">👥</span>
+            <div>
+                <div>Social &amp; Behavioral</div>
+                <div style="font-size:0.8rem;font-weight:500;opacity:0.8;">Questions 15–17</div>
+            </div>
+            <span class="cat-num">3 questions</span>
+        </div>
+
+        {% for q, field in form.fields.items %}
+        {% if q == "q15" or q == "q16" or q == "q17" %}
+        <div class="question-card" id="card-{{ q }}">
+            <div class="q-label">
+                <span class="q-num">{{ forloop.counter }}</span>
+                <span>{{ field.label }}</span>
+            </div>
+            <div class="emoji-scale">
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0">
+                    <label for="{{ q }}_0"><span class="emoji">😊</span>Never</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1">
+                    <label for="{{ q }}_1"><span class="emoji">🙂</span>Rarely</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2">
+                    <label for="{{ q }}_2"><span class="emoji">😐</span>Sometimes</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3">
+                    <label for="{{ q }}_3"><span class="emoji">😟</span>Often</label>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <!-- CATEGORY 5: Focus & Productivity -->
+        <div class="category-header">
+            <span class="cat-icon">🎯</span>
+            <div>
+                <div>Focus &amp; Productivity</div>
+                <div style="font-size:0.8rem;font-weight:500;opacity:0.8;">Questions 18–20</div>
+            </div>
+            <span class="cat-num">3 questions</span>
+        </div>
+
+        {% for q, field in form.fields.items %}
+        {% if q == "q18" or q == "q19" or q == "q20" %}
+        <div class="question-card" id="card-{{ q }}">
+            <div class="q-label">
+                <span class="q-num">{{ forloop.counter }}</span>
+                <span>{{ field.label }}</span>
+            </div>
+            <div class="emoji-scale">
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0">
+                    <label for="{{ q }}_0"><span class="emoji">😊</span>Never</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1">
+                    <label for="{{ q }}_1"><span class="emoji">🙂</span>Rarely</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2">
+                    <label for="{{ q }}_2"><span class="emoji">😐</span>Sometimes</label>
+                </div>
+                <div class="emoji-option">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3">
+                    <label for="{{ q }}_3"><span class="emoji">😟</span>Often</label>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <div class="submit-section">
+            <div class="disclaimer">
+                ⚠️ This assessment is for self-awareness only. It is <strong>not a clinical diagnosis</strong>. If you are struggling, please seek professional support.
+            </div>
+            <button type="submit" class="submit-btn">Get My Results →</button>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    const totalQ = 20;
+    function updateProgress() {
+        let answered = 0;
+        for (let i = 1; i <= totalQ; i++) {
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            for (const r of radios) {
+                if (r.checked) { answered++; break; }
+            }
+            // highlight card
+            const card = document.getElementById(`card-q${i}`);
+            if (card) {
+                const hasAnswer = Array.from(radios).some(r => r.checked);
+                card.classList.toggle('answered', hasAnswer);
+            }
+        }
+        const pct = Math.round((answered / totalQ) * 100);
+        document.getElementById('progress-text').textContent = `${answered} of ${totalQ} answered`;
+        document.getElementById('progress-pct').textContent = pct + '%';
+        document.getElementById('progress-fill').style.width = pct + '%';
+    }
+
+    document.querySelectorAll('input[type="radio"]').forEach(r => {
+        r.addEventListener('change', updateProgress);
+    });
+    updateProgress();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TheHope | Wellness Assessment</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 

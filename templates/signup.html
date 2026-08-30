@@ -1,4 +1,4 @@
-{% load static %}
+﻿{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,254 +6,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account | TheHope</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
     <style>
-        :root {
-            --primary-brown: #5d4037;
-            --light-brown: #d7ccc8; 
-            --dark-brown: #451a03;
-            --bg-sand: #fdfaf7;
-            --card-border: #e3d5ca;
-            --text-muted: #7f5539;
-        }
-
-        * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1); }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
-            background-color: var(--light-brown);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* --- GLOBAL HEADER --- */
-        .navbar {
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            padding: 18px 8%; 
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px); 
-            position: sticky; top: 0; z-index: 1000;
-            border-bottom: 1.5px solid var(--card-border);
-        }
-
-        .logo {
-            color: var(--dark-brown); 
-            margin: 0; 
-            font-size: 1.8rem; 
-            letter-spacing: -1.5px;
-            font-weight: 800;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            text-decoration: none; 
-            color: var(--text-muted); 
-            font-weight: 800;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.6;
-        }
-
-        .nav-links a:hover {
-            color: var(--dark-brown);
-            opacity: 1;
-        }
-
-        /* --- CENTERED CONTENT --- */
-        .main-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-            z-index: 10;
-        }
-
-        /* --- SIGNUP CARD --- */
-        .card {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 45px;
-            width: 100%;
-            max-width: 420px;
-            border-radius: 40px;
-            border: 2px solid var(--dark-brown);
-            box-shadow: 0 25px 50px rgba(69, 26, 3, 0.15);
-            text-align: center;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 35px 80px rgba(69, 26, 3, 0.2);
-        }
-
-        h2 {
-            margin-bottom: 30px;
-            font-weight: 700;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        /* --- FORM STYLES --- */
-        .input-group {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-size: 0.8rem;
-            font-weight: 800;
-            color: var(--dark-brown);
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-left: 5px;
-            display: block;
-        }
-
-        input {
-            width: 100%;
-            padding: 14px 20px;
-            margin-top: 8px;
-            border: 2px solid var(--card-border);
-            border-radius: 15px;
-            outline: none;
-            font-family: inherit;
-            font-weight: 600;
-            background: var(--bg-sand);
-            color: var(--dark-brown);
-            font-size: 0.95rem;
-        }
-
-        input:focus {
-            border-color: var(--dark-brown);
-            background: #fff;
-            box-shadow: 0 0 0 4px rgba(69, 26, 3, 0.05);
-        }
-
-        button {
-            width: 100%;
-            padding: 18px;
-            margin-top: 15px;
-            background: var(--dark-brown);
-            color: white;
-            border: none;
-            border-radius: 20px;
-            font-size: 1.1rem;
-            font-weight: 800;
-            cursor: pointer;
-            box-shadow: 0 12px 25px rgba(69, 26, 3, 0.2);
-        }
-
-        button:hover {
-            transform: scale(1.02);
-            background-color: var(--primary-brown);
-        }
-
-        .login-link {
-            display: block;
-            margin-top: 25px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .login-link:hover {
-            color: var(--dark-brown);
-            text-decoration: underline;
-        }
-
-        /* --- RIVER (Soft Flow) --- */
-        .river-canvas {
-            position: fixed; 
-            bottom: 0; left: 0; width: 100%; height: 25vh; 
-            z-index: 2; pointer-events: none;
-        }
+        :root { --dark-brown: #451a03; --wood: #78350f; --accent: #fb923c; --bg: #fdfaf7; --border: #e3d5ca; --muted: #7f5539; --error: #dc2626; --success: #16a34a; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: radial-gradient(circle at 40% 30%, #ffedd5, #fed7aa 60%, #78350f); background-attachment: fixed; min-height: 100vh; display: flex; flex-direction: column; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 16px 8%; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1.5px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .logo { color: var(--dark-brown); font-size: 1.6rem; font-weight: 800; text-decoration: none; letter-spacing: -1px; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-weight: 700; font-size: 0.82rem; margin-left: 20px; }
+        .page { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+        .card { background: rgba(255,255,255,0.98); width: 100%; max-width: 440px; border-radius: 30px; padding: 45px 40px; border: 2px solid var(--dark-brown); box-shadow: 0 30px 60px rgba(69,26,3,0.15); }
+        .card-header { text-align: center; margin-bottom: 32px; }
+        .card-icon { font-size: 2.5rem; display: block; margin-bottom: 12px; }
+        .card-title { font-size: 1.5rem; font-weight: 800; color: var(--dark-brown); margin-bottom: 6px; }
+        .card-sub { font-size: 0.88rem; color: var(--muted); font-weight: 500; }
+        .field { margin-bottom: 20px; }
+        .field label { display: block; font-size: 0.75rem; font-weight: 800; color: var(--dark-brown); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .input-wrap { position: relative; }
+        .input-wrap input { width: 100%; padding: 14px 48px 14px 18px; border: 2px solid var(--border); border-radius: 14px; font-family: inherit; font-size: 0.95rem; font-weight: 600; color: var(--dark-brown); background: var(--bg); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+        .input-wrap input:focus { border-color: var(--dark-brown); box-shadow: 0 0 0 4px rgba(69,26,3,0.06); background: #fff; }
+        .input-wrap input.is-error { border-color: var(--error); background: #fff5f5; }
+        .input-wrap input.is-ok { border-color: var(--success); }
+        .eye-btn { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--muted); font-size: 1.1rem; padding: 4px; }
+        .field-error { margin-top: 7px; font-size: 0.78rem; font-weight: 700; color: var(--error); display: flex; align-items: center; gap: 5px; }
+        .strength-wrap { margin-top: 10px; display: none; }
+        .strength-bars { display: flex; gap: 4px; margin-bottom: 5px; }
+        .bar { flex: 1; height: 5px; border-radius: 50px; background: #e5e7eb; transition: background 0.3s; }
+        .bar.weak { background: #dc2626; }
+        .bar.fair { background: #f59e0b; }
+        .bar.good { background: #3b82f6; }
+        .bar.strong { background: #16a34a; }
+        .strength-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); }
+        .requirements { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 12px; padding: 12px 14px; margin-top: 10px; }
+        .req-title { font-size: 0.73rem; font-weight: 800; color: var(--wood); margin-bottom: 8px; text-transform: uppercase; }
+        .req-item { display: flex; align-items: center; gap: 7px; font-size: 0.78rem; font-weight: 600; color: #9a6a4a; margin-bottom: 5px; transition: color 0.2s; }
+        .req-item.met { color: var(--success); }
+        .req-dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid #d5c4b0; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; transition: all 0.2s; }
+        .req-item.met .req-dot { background: var(--success); border-color: var(--success); color: white; }
+        .alert-error { background: #fee2e2; border: 1.5px solid #fca5a5; border-radius: 12px; padding: 12px 16px; font-size: 0.83rem; font-weight: 700; color: var(--error); margin-bottom: 18px; display: flex; align-items: flex-start; gap: 8px; }
+        .submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--wood), var(--dark-brown)); color: white; border: none; border-radius: 16px; font-size: 1rem; font-weight: 800; cursor: pointer; font-family: inherit; box-shadow: 0 10px 25px rgba(69,26,3,0.25); transition: all 0.3s; margin-top: 8px; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(69,26,3,0.35); }
+        .footer-link { text-align: center; margin-top: 22px; font-size: 0.88rem; color: var(--muted); font-weight: 600; }
+        .footer-link a { color: var(--dark-brown); font-weight: 800; text-decoration: none; }
+        .match-ok { margin-top: 6px; font-size: 0.78rem; font-weight: 700; color: var(--success); display: none; }
     </style>
 </head>
-
 <body>
-
-    <nav class="navbar">
-        <a href="/" class="logo">TheHope.✨</a>
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/accounts/login/">Login</a>
+<nav class="navbar"><a href="/" class="logo">🌱 TheHope</a><div class="nav-links"><a href="/">Home</a><a href="/accounts/login/">Login</a></div></nav>
+<div class="page">
+    <div class="card">
+        <div class="card-header">
+            <span class="card-icon">🌿</span><div class="card-title">Create Your Account</div><div class="card-sub">Start your mental wellness journey today</div>
         </div>
-    </nav>
-
-    <div class="main-container">
-        <div class="card">
-            <h2>JOIN THE JOURNEY</h2>
-
-            <form method="POST">
-                {% csrf_token %}
-
-                <div class="input-group">
-                    <label>Username</label>
-                    {{ form.username }}
+        {% if form.non_field_errors %}<div class="alert-error"><span>⚠</span><div>{% for e in form.non_field_errors %}{{ e }}{% endfor %}</div></div>{% endif %}
+        <form method="POST" id="signup-form" novalidate>
+            {% csrf_token %}
+            <div class="field">
+                <label for="id_username">Username</label>
+                <div class="input-wrap">
+                    <input type="text" name="username" id="id_username" value="{{ form.username.value|default:'' }}" placeholder="Choose a username (e.g. Manish123)" autocomplete="username" class="{% if form.username.errors %}is-error{% endif %}">
                 </div>
-
-                <div class="input-group">
-                    <label>Password</label>
-                    {{ form.password1 }}
+                {% if form.username.errors %}<div class="field-error">⚠ {% for e in form.username.errors %}{{ e }}{% endfor %}</div>{% endif %}
+            </div>
+            <div class="field">
+                <label for="id_password1">Password</label>
+                <div class="input-wrap">
+                    <input type="password" name="password1" id="id_password1" placeholder="Create a strong password" autocomplete="new-password" class="{% if form.password1.errors %}is-error{% endif %}" oninput="checkStrength(this.value)">
+                    <button type="button" class="eye-btn" onclick="togglePwd('id_password1',this)">👁</button>
                 </div>
-
-                <div class="input-group">
-                    <label>Confirm Password</label>
-                    {{ form.password2 }}
+                {% if form.password1.errors %}<div class="field-error">⚠ {% for e in form.password1.errors %}{{ e }}{% endfor %}</div>{% endif %}
+                <div class="strength-wrap" id="strength-wrap">
+                    <div class="strength-bars"><div class="bar" id="b1"></div><div class="bar" id="b2"></div><div class="bar" id="b3"></div><div class="bar" id="b4"></div></div>
+                    <div class="strength-label" id="strength-label"></div>
                 </div>
-
-                <button type="submit">Create Account</button>
-            </form>
-
-            <a href="/accounts/login/" class="login-link">Already have an account? Login</a>
-        </div>
+                <div class="requirements">
+                    <div class="req-title">Password Requirements</div>
+                    <div class="req-item" id="req-len"><div class="req-dot">✓</div> At least 6 characters</div>
+                    <div class="req-item" id="req-letter"><div class="req-dot">✓</div> Contains at least one letter</div>
+                    <div class="req-item" id="req-num"><div class="req-dot">✓</div> Contains a number</div>
+                </div>
+            </div>
+            <div class="field">
+                <label for="id_password2">Confirm Password</label>
+                <div class="input-wrap">
+                    <input type="password" name="password2" id="id_password2" placeholder="Repeat your password" autocomplete="new-password" class="{% if form.password2.errors %}is-error{% endif %}" oninput="checkMatch()">
+                    <button type="button" class="eye-btn" onclick="togglePwd('id_password2',this)">👁</button>
+                </div>
+                {% if form.password2.errors %}<div class="field-error">⚠ {% for e in form.password2.errors %}{{ e }}{% endfor %}</div>{% endif %}
+                <div class="field-error" id="match-error" style="display:none;">⚠ Passwords do not match</div>
+                <div class="match-ok" id="match-ok">✓ Passwords match!</div>
+            </div>
+            <button type="submit" class="submit-btn">Create My Account →</button>
+        </form>
+        <div class="footer-link">Already have an account? <a href="/accounts/login/">Sign in here</a></div>
     </div>
-
-    <canvas id="riverCanvas" class="river-canvas"></canvas>
-
-    <script>
-        const canvas = document.getElementById('riverCanvas');
-        const ctx = canvas.getContext('2d');
-        
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight * 0.25;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        let time = 0;
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "rgba(69, 26, 3, 0.07)"; 
-            ctx.beginPath();
-            ctx.moveTo(0, canvas.height);
-            for(let x = 0; x <= canvas.width; x += 15) {
-                const y = canvas.height * 0.6 + Math.sin(x * 0.015 + time) * 10;
-                ctx.lineTo(x, y);
-            }
-            ctx.lineTo(canvas.width, canvas.height);
-            ctx.fill();
-            time += 0.03;
-            requestAnimationFrame(draw);
-        }
-        draw();
-    </script>
-
+</div>
+<script>
+function togglePwd(id, btn) { const inp = document.getElementById(id); inp.type = inp.type === 'password' ? 'text' : 'password'; btn.textContent = inp.type === 'password' ? '👁' : '🙈'; }
+function checkStrength(val) {
+    const wrap = document.getElementById('strength-wrap');
+    if (!val) { wrap.style.display = 'none'; return; }
+    wrap.style.display = 'block';
+    let score = 0; if (val.length >= 6) score++; if (val.length >= 10) score++; if (/[A-Za-z]/.test(val) && /\d/.test(val)) score++; if (/[^a-zA-Z0-9]/.test(val)) score++;
+    const cls = ['','weak','fair','good','strong']; const lbl = ['','Weak','Fair','Good','Strong']; const colors = ['','#dc2626','#f59e0b','#3b82f6','#16a34a'];
+    ['b1','b2','b3','b4'].forEach((id, i) => { const el = document.getElementById(id); el.className = 'bar'; if (i < score) el.classList.add(cls[score]); });
+    const sl = document.getElementById('strength-label'); sl.textContent = lbl[score] || 'Weak'; sl.style.color = colors[score] || '#dc2626';
+    document.getElementById('req-len').classList.toggle('met', val.length >= 6); document.getElementById('req-letter').classList.toggle('met', /[a-zA-Z]/.test(val)); document.getElementById('req-num').classList.toggle('met', /\d/.test(val));
+    checkMatch();
+}
+function checkMatch() {
+    const p1 = document.getElementById('id_password1').value; const p2 = document.getElementById('id_password2').value;
+    const err = document.getElementById('match-error'); const ok = document.getElementById('match-ok'); const inp2 = document.getElementById('id_password2');
+    if (!p2) { err.style.display = 'none'; ok.style.display = 'none'; inp2.className=''; return; }
+    if (p1 === p2) { err.style.display = 'none'; ok.style.display = 'block'; inp2.classList.add('is-ok'); inp2.classList.remove('is-error'); }
+    else { err.style.display = 'flex'; ok.style.display = 'none'; inp2.classList.add('is-error'); inp2.classList.remove('is-ok'); }
+}
+</script>
 </body>
 </html>
