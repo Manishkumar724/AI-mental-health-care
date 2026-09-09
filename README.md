@@ -9,7 +9,7 @@
 
 ## 🚀 Live Demo
 
-🔗 Coming soon — local deployment available (see installation below)
+🔗 https://ai-mental-health-care-zeg0.onrender.com/
 
 ---
 
