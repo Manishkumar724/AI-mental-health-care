@@ -291,19 +291,19 @@
             </div>
             <div class="emoji-scale">
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0" {% if field.value|stringformat:"s" == "0" %}checked{% endif %} required>
                     <label for="{{ q }}_0"><span class="emoji">😊</span>Never</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1" {% if field.value|stringformat:"s" == "1" %}checked{% endif %} required>
                     <label for="{{ q }}_1"><span class="emoji">🙂</span>Rarely</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2" {% if field.value|stringformat:"s" == "2" %}checked{% endif %} required>
                     <label for="{{ q }}_2"><span class="emoji">😐</span>Sometimes</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3" {% if field.value|stringformat:"s" == "3" %}checked{% endif %} required>
                     <label for="{{ q }}_3"><span class="emoji">😟</span>Often</label>
                 </div>
             </div>
@@ -330,19 +330,19 @@
             </div>
             <div class="emoji-scale">
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0" {% if field.value|stringformat:"s" == "0" %}checked{% endif %} required>
                     <label for="{{ q }}_0"><span class="emoji">😊</span>Never</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1" {% if field.value|stringformat:"s" == "1" %}checked{% endif %} required>
                     <label for="{{ q }}_1"><span class="emoji">🙂</span>Rarely</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2" {% if field.value|stringformat:"s" == "2" %}checked{% endif %} required>
                     <label for="{{ q }}_2"><span class="emoji">😐</span>Sometimes</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3" {% if field.value|stringformat:"s" == "3" %}checked{% endif %} required>
                     <label for="{{ q }}_3"><span class="emoji">😟</span>Often</label>
                 </div>
             </div>
@@ -369,19 +369,19 @@
             </div>
             <div class="emoji-scale">
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0" {% if field.value|stringformat:"s" == "0" %}checked{% endif %} required>
                     <label for="{{ q }}_0"><span class="emoji">😊</span>Never</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1" {% if field.value|stringformat:"s" == "1" %}checked{% endif %} required>
                     <label for="{{ q }}_1"><span class="emoji">🙂</span>Rarely</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2" {% if field.value|stringformat:"s" == "2" %}checked{% endif %} required>
                     <label for="{{ q }}_2"><span class="emoji">😐</span>Sometimes</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3" {% if field.value|stringformat:"s" == "3" %}checked{% endif %} required>
                     <label for="{{ q }}_3"><span class="emoji">😟</span>Often</label>
                 </div>
             </div>
@@ -408,19 +408,19 @@
             </div>
             <div class="emoji-scale">
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0" {% if field.value|stringformat:"s" == "0" %}checked{% endif %} required>
                     <label for="{{ q }}_0"><span class="emoji">😊</span>Never</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1" {% if field.value|stringformat:"s" == "1" %}checked{% endif %} required>
                     <label for="{{ q }}_1"><span class="emoji">🙂</span>Rarely</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2" {% if field.value|stringformat:"s" == "2" %}checked{% endif %} required>
                     <label for="{{ q }}_2"><span class="emoji">😐</span>Sometimes</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3" {% if field.value|stringformat:"s" == "3" %}checked{% endif %} required>
                     <label for="{{ q }}_3"><span class="emoji">😟</span>Often</label>
                 </div>
             </div>
@@ -447,19 +447,19 @@
             </div>
             <div class="emoji-scale">
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_0" value="0" {% if field.value|stringformat:"s" == "0" %}checked{% endif %} required>
                     <label for="{{ q }}_0"><span class="emoji">😊</span>Never</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_1" value="1" {% if field.value|stringformat:"s" == "1" %}checked{% endif %} required>
                     <label for="{{ q }}_1"><span class="emoji">🙂</span>Rarely</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_2" value="2" {% if field.value|stringformat:"s" == "2" %}checked{% endif %} required>
                     <label for="{{ q }}_2"><span class="emoji">😐</span>Sometimes</label>
                 </div>
                 <div class="emoji-option">
-                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3">
+                    <input type="radio" name="{{ q }}" id="{{ q }}_3" value="3" {% if field.value|stringformat:"s" == "3" %}checked{% endif %} required>
                     <label for="{{ q }}_3"><span class="emoji">😟</span>Often</label>
                 </div>
             </div>
