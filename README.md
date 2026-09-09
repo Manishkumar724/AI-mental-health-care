@@ -401,12 +401,11 @@ This project is licensed under the **MIT License**.
 
 🎓 B.Tech – Computer Science & Engineering
 
-📧 Email: **manishkumar724@github.com**
+📧 Email: **rekhamanish10@gmail.com**
 
 🔗 GitHub: https://github.com/Manishkumar724
 
-🔗 LinkedIn: *(Add your LinkedIn profile URL here)*
-
+🔗 LinkedIn: https://www.linkedin.com/in/manishkumar724/
 ---
 
 ## ⭐ Support
