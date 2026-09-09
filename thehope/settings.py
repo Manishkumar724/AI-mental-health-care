@@ -26,19 +26,14 @@ SECRET_KEY = 'django-insecure-wlejn+jh2)s$ll5c^u3go6*m)cv_p-*qos(xx&hwpy3@75v=k$
 DEBUG = True
 
 ALLOWED_HOSTS = [
-
-"ai-mental-health-support-system-1.onrender.com",
-
-"localhost",
-
-"127.0.0.1"
-
+    "ai-mental-health-care-zeg0.onrender.com",
+    "localhost",
+    "127.0.0.1"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://ai-mental-health-support-system-1.onrender.com"
+    "https://ai-mental-health-care-zeg0.onrender.com"
 ]
-
 
 # Application definition
 
