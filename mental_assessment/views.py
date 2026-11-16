@@ -49,20 +49,20 @@ def assessment_view(request):
                 return "High"
 
             categories = [
-                {"name": "Stress & Anxiety",       "score": stress_score,     "max": 15, "level": cat_level(stress_score, 15),     "icon": "😰"},
-                {"name": "Depression & Mood",       "score": depression_score, "max": 15, "level": cat_level(depression_score, 15), "icon": "😔"},
-                {"name": "Sleep & Physical Health", "score": sleep_score,      "max": 12, "level": cat_level(sleep_score, 12),      "icon": "😴"},
-                {"name": "Social & Behavioral",     "score": social_score,     "max": 9,  "level": cat_level(social_score, 9),      "icon": "👥"},
-                {"name": "Focus & Productivity",    "score": focus_score,      "max": 9,  "level": cat_level(focus_score, 9),       "icon": "🎯"},
+                {"name": "Stress",     "score": stress_score,     "max": 15, "level": cat_level(stress_score, 15),     "icon": "😰"},
+                {"name": "Depression", "score": depression_score, "max": 15, "level": cat_level(depression_score, 15), "icon": "😔"},
+                {"name": "Sleep",      "score": sleep_score,      "max": 12, "level": cat_level(sleep_score, 12),      "icon": "😴"},
+                {"name": "Social",     "score": social_score,     "max": 9,  "level": cat_level(social_score, 9),      "icon": "👥"},
+                {"name": "Focus",      "score": focus_score,      "max": 9,  "level": cat_level(focus_score, 9),       "icon": "🎯"},
             ]
 
             # Tips based on highest category
             tips_map = {
-                "Stress & Anxiety":       ["Try 5-minute deep breathing exercises daily", "Practice progressive muscle relaxation", "Write down your worries and challenge them"],
-                "Depression & Mood":      ["Set one small achievable goal each day", "Spend time in nature or sunlight", "Reach out to a trusted friend or family member"],
-                "Sleep & Physical Health":["Maintain a consistent sleep schedule", "Limit screen time 1 hour before bed", "Engage in light exercise like walking"],
-                "Social & Behavioral":    ["Schedule regular check-ins with loved ones", "Join a group activity or hobby class", "Consider speaking to a counselor"],
-                "Focus & Productivity":   ["Break tasks into smaller steps", "Use the Pomodoro technique (25-min focus sessions)", "Minimize distractions during work hours"],
+                "Stress":     ["Try 5-minute deep breathing exercises daily", "Practice progressive muscle relaxation", "Write down your worries and challenge them"],
+                "Depression": ["Set one small achievable goal each day", "Spend time in nature or sunlight", "Reach out to a trusted friend or family member"],
+                "Sleep":      ["Maintain a consistent sleep schedule", "Limit screen time 1 hour before bed", "Engage in light exercise like walking"],
+                "Social":     ["Schedule regular check-ins with loved ones", "Join a group activity or hobby class", "Consider speaking to a counselor"],
+                "Focus":      ["Break tasks into smaller steps", "Use the Pomodoro technique (25-min focus sessions)", "Minimize distractions during work hours"],
             }
 
             # Find worst category

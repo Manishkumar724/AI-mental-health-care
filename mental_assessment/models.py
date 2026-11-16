@@ -6,32 +6,32 @@ class Assessment(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    # Stress & Anxiety (Q1-Q5)
+    # Stress (Q1-Q5)
     q1  = models.IntegerField(default=0)
     q2  = models.IntegerField(default=0)
     q3  = models.IntegerField(default=0)
     q4  = models.IntegerField(default=0)
     q5  = models.IntegerField(default=0)
 
-    # Depression & Mood (Q6-Q10)
+    # Depression (Q6-Q10)
     q6  = models.IntegerField(default=0)
     q7  = models.IntegerField(default=0)
     q8  = models.IntegerField(default=0)
     q9  = models.IntegerField(default=0)
     q10 = models.IntegerField(default=0)
 
-    # Sleep & Physical Health (Q11-Q14)
+    # Sleep (Q11-Q14)
     q11 = models.IntegerField(default=0)
     q12 = models.IntegerField(default=0)
     q13 = models.IntegerField(default=0)
     q14 = models.IntegerField(default=0)
 
-    # Social & Behavioral (Q15-Q17)
+    # Social (Q15-Q17)
     q15 = models.IntegerField(default=0)
     q16 = models.IntegerField(default=0)
     q17 = models.IntegerField(default=0)
 
-    # Focus & Productivity (Q18-Q20)
+    # Focus (Q18-Q20)
     q18 = models.IntegerField(default=0)
     q19 = models.IntegerField(default=0)
     q20 = models.IntegerField(default=0)
